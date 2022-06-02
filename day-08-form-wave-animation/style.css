@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-size: 1.6rem;
+  background-color: steelblue;
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+a {
+  color: lightblue;
+  outline: none;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  min-width: 35rem;
+}
+
+.form-group {
+  margin: 3.5rem 0;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  padding: 1rem 0.5rem;
+}
+input:focus,
+input:hover {
+  border-color: lightblue;
+}
+
+
+.btn {
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;  
+  width: 100%;
+  padding: 1.5rem;
+  margin: 3rem 0;
+  background-color: lightblue;  
+  border: none;
+  border-radius: 0.5rem;  
+}
+.btn:focus,
+.btn:hover {
+  color: white;
+  background-color: steelblue;
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.95);
+}
+
+.form-group label {
+  position: absolute;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+}
+.form-group label span {
+  display: inline-block;  
+  transition: 0.3s cubic-bezier(0.7, -0.5, 0.25, 1.5);
+}
+
+
+.form-group input:focus + label span, 
+.form-group input:hover + label span,
+.form-group input:valid + label span {
+  color: lightblue;
+  transform: translateY(-3rem);
+}
+
+

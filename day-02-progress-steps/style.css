@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --color-active: #3498db;
+  --color-inactive: #e0e0e0;
+  --color-bg: #f6f7fb;
+  --color-light: #fff;
+  --color-grey: #999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: 'Muli', sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+  max-width: 100%;
+  width: 35rem;
+}
+.progress-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: var(--color-inactive);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: var(--color-active);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  border: 3px solid var(--color-inactive);
+  border-radius: 50%;
+  background-color: var(--color-light);
+  color: var(--color-grey);
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease;
+}
+.circle.active {
+  border-color: var(--color-active);
+}
+
+.btn {
+  color: var(--color-light);
+  background-color: var(--color-active);
+  border: none;
+  border-radius: .6rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.8rem 3rem;
+  margin: 0.5rem;
+  font-size: 1.4rem;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  background-color: var(--color-inactive);
+  cursor: not-allowed;
+}
