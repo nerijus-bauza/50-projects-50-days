@@ -1,5 +1,4 @@
 const icons = document.querySelectorAll('i');
-const test = document.querySelector('.answer');
 
 icons.forEach(icon => {
   
