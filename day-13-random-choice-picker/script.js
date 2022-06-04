@@ -19,9 +19,12 @@ choicesForm.addEventListener('submit', event => {
 function generateChoices(str) {
   let res = ''
   if (str.length) {    
-    str.split(',').forEach(el => {
-      res = res + `<div class="choice">${el}</div>`;
-    });
+    str.split(',')
+      .filter(el => el.trim() !== '')
+      .map(el => el.trim())
+      .forEach(el => {
+        res = res + `<div class="choice">${el}</div>`;
+      });
   }  
   return res;  
 }
@@ -41,7 +44,7 @@ async function chooseRandomChoice() {
 
     for (const el of randArray) {
       choices[el].classList.add('active');
-      await wait(300);
+      await wait(100);
       if (el !== randArray[randArray.length - 1]) {
         choices[el].classList.remove('active');
       }
