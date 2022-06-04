@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {  
+  --color-main: hsl(52, 100%, 62%);
+  --color-secondary: hsl(195, 100%, 49%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-size: 1.6rem;   
+
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  overflow: hidden;
+  min-height: 100vh;
+
+  background-image: linear-gradient(0deg, 
+    var(--color-main) 0%, 
+    var(--color-main) 50%, 
+    var(--color-secondary) 50%, 
+    var(--color-secondary) 100%);
+}
+
+.nav {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 3px;
+  padding: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  width: 7rem;
+  position: relative;
+  transition: all 1s;
+}
+.nav__items {
+  display: flex;
+  list-style-type: none;  
+
+  position: absolute;
+  left: 2.5rem;
+  
+  opacity: 0;
+  transform: translateX(10rem);
+  transition: all 0.8s;
+}
+.nav__item {
+  margin-right: 1.5rem;
+
+  transition: all 0.5s ease-out;
+}
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+}
+.nav__link:focus,
+.nav__link:hover {
+  outline: none;
+  color: var(--color-secondary);
+}
+
+.nav__icon {
+  cursor: pointer;
+  list-style-type: none;
+    
+  width: 2rem; height: 2rem;
+  position: relative;
+  z-index: 3;    
+}
+.nav__icon:focus { outline: none; }
+
+.nav__icon:focus-visible .nav__icon-line {
+  background-color: var(--color-main);
+}
+
+.nav__icon-line {
+  height: 2px; width: 2rem;
+  background-color: var(--color-secondary);
+  position: absolute;
+
+  transition: transform 1s, background-color 0.2s;
+}
+.nav__icon-line--1 { top: 0.5rem; }
+.nav__icon-line--2 { bottom: 0.5rem; }
+
+/* expanded navigation styles */
+.nav.expanded { width: 36rem; }
+.nav.expanded .nav__items {
+  transform: translateX(0);
+  opacity: 1;
+}
+.nav.expanded .nav__item { transform: rotateY(720deg); }
+.nav.expanded .nav__icon-line--1 { transform: rotate(765deg) translate(0.23rem, 0.33rem); }
+.nav.expanded .nav__icon-line--2 { transform: rotate(-765deg) translate(0.23rem, -0.33rem); }
