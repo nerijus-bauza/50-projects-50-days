@@ -74,8 +74,8 @@ body {
 
 .nav__icon {
   cursor: pointer;
-  list-style-type: none;
-    
+  border: none;
+  background-color: transparent;
   width: 2rem; height: 2rem;
   position: relative;
   z-index: 3;    
