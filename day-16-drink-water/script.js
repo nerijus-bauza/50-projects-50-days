@@ -34,7 +34,11 @@ function generateGlasses(num) {
 
 function fillGlasses(e) {
   // number of selected glass:  
-  drankGlasses = +e.target.getAttribute('data-glassNum');   
+  drankGlasses = +e.target.getAttribute('data-glassNum');
+  // if selected glass is active and the next one is not, then deactivate selected glass
+  if (e.target.classList.contains('active') && !e.target.nextElementSibling.classList.contains('active')) {
+    drankGlasses--;
+  }
   // mark as active required number of glasses
   const glasses = document.querySelectorAll('.glass');  
   glasses.forEach(glass => {
