@@ -5,17 +5,14 @@ const percentage = document.querySelector('.percentage');
 const remained = document.querySelector('.remained');
 const remainedQuantity = document.querySelector('.remained-quantity');
 
-let goal = goalInput.value;
-let totalGlasses = goal / 0.25;
+let totalGlasses = goalInput.value / 0.25;
 let drankGlasses = 0;
 
 generateGlasses(totalGlasses);
 fillGlassMeter(drankGlasses, totalGlasses);
 
 goalInput.addEventListener('change', (event) => {
-  goal = round(event.target.value, 0.25);
-  totalGlasses = round(goal, 0.25) / 0.25;   
-  drankGlasses = 0;
+  totalGlasses = round(goalInput.value, 0.25) / 0.25;
   generateGlasses(totalGlasses);
   fillGlassMeter(drankGlasses, totalGlasses); 
 });
@@ -26,6 +23,7 @@ function generateGlasses(num) {
     const glass = document.createElement('div');
     glass.innerText = '250 ml';
     glass.classList.add('glass');
+    if (i <= drankGlasses) { glass.classList.add('active'); }
     glass.setAttribute('data-glassNum', i.toString());
     glass.addEventListener('click', (event) => {
       fillGlasses(event);
@@ -35,17 +33,16 @@ function generateGlasses(num) {
 }
 
 function fillGlasses(e) {
-  // number of selected glass:
-  const numOfSelectedGlass = +e.target.getAttribute('data-glassNum');   
+  // number of selected glass:  
+  drankGlasses = +e.target.getAttribute('data-glassNum');   
   // mark as active required number of glasses
   const glasses = document.querySelectorAll('.glass');  
   glasses.forEach(glass => {
     glass.classList.remove('active');
-    if (+glass.getAttribute('data-glassNum') <= numOfSelectedGlass) {
+    if (+glass.getAttribute('data-glassNum') <= drankGlasses) {
       glass.classList.add('active');
     }
-  });
-  drankGlasses = numOfSelectedGlass;
+  });  
   fillGlassMeter(drankGlasses, totalGlasses);
 }
 
@@ -59,9 +56,7 @@ function fillGlassMeter(drunk, total) {
   
 }
 
-
-
-// helper function round value to nearest step
+// helper function round value to nearest step of step
 function round(value, step) {
   step || (step = 1.0);
   var inv = 1.0 / step;
