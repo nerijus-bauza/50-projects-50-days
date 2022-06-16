@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --color-bg-main: #282828;
+  --color-bg-secondary: #424449;
+  --color-bg-light: #fffe;
+
+  --color-fg-main: #fff;
+  --color-fg-secondary: #6F868C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-size: 1.6rem;
+  color: var(--color-fg-main);
+  background-color: var(--color-bg-main);
+  margin: 0; 
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-secondary);
+}
+header .logo {
+  margin: 0.5rem 2rem;
+  height: 3rem;
+  width: 7rem;
+  background-image: url('https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header input {
+  margin: 1rem 3rem;
+  border: 2px solid var(--color-bg-main);
+  border-radius: 5rem;
+  background-color: transparent;
+  color: var(--color-fg-main);
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-size: 1.8rem;
+}
+header input:focus {
+  outline: none;
+  background-color: var(--color-bg-main);
+}
+header input::placeholder {
+  color: var(--color-fg-secondary);
+}
+
+main { 
+  margin: 2rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+}
+
+.movie {
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+  overflow: hidden;
+}
+
+.movie__header {
+  position: relative;
+  overflow: hidden;
+  min-height: 50%;
+}
+.movie__poster { width: 100%; }
+.movie__overview {
+  background-color: var(--color-bg-light);
+  color: var(--color-bg-main);
+  padding: 1.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  transform: translateY(101%);
+  transition: transform 0.2s ease;
+}
+.movie:hover .movie__overview {
+  transform: translateY(0);
+}
+
+.movie__footer {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.movie__title { letter-spacing: 0.1rem; }
+.movie__rating {
+  background-color: var(--color-bg-main);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+.movie__rating.green { color: greenyellow; }
+.movie__rating.orange { color: orange; }
+.movie__rating.red { color: red; }
+
+
+footer {
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;  
+  color: var(--color-fg-secondary);
+}
+footer a {
+  color: var(--color-fg-main);
+  margin-left: 1rem;
+}
