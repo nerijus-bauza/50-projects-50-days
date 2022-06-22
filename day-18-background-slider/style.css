@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --img-size-w: 100vw;
+  --img-size-h: 120vh;
+  --slide-size-w: 70vw;
+  --slide-size-h: 70vh;
+  --img-offset-left: -15vw;
+  --img-offset-top: -25vh;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 62.5%; }
+
+body {  
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  background-color: black;
+
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  overflow: hidden;
+ 
+  width: 100vw; height: 100vh;
+}
+
+.bg-box {
+  width: var(--img-size-w); 
+  height: var(--img-size-h);
+  
+  position: relative;
+
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  transition: all 0.5s;
+}
+
+.slide-box {
+  width: var(--slide-size-w); 
+  height: var(--slide-size-h);
+ 
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: var(--img-size-w); 
+  height: var(--img-size-h);
+  left: var(--img-offset-left); 
+  top: var(--img-offset-top); 
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+
+.btn {
+  position: absolute;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1.5rem 0.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  color: rgba(255, 255, 255, 0.8);
+}
+.btn--left {
+  right: calc(var(--img-size-w) + var(--img-offset-left));
+}
+.btn--right {
+  left: calc(var(--img-size-w) + var(--img-offset-left));
+}
