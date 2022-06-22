@@ -28,6 +28,7 @@ function showSlide(index) {
   });
   slides[index].classList.add('active');
 
-  const imgUrl = slides[index].style.getPropertyValue('background-image');
-  bg.style.setProperty('background-image', 'linear-gradient(#0006, #0006), ' + imgUrl); 
+  //const imgUrl = slides[index].style.getPropertyValue('background-image');
+  //bg.style.setProperty('background-image', 'linear-gradient(#0006, #0006), ' + imgUrl); 
+  bg.style.backgroundImage = slides[index].style.backgroundImage; 
 }
