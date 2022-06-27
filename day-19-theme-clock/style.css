@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+:root {
+  --bg-color: #fff;
+  --fg-color: #000;
+  --arrow-thickness: 3px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  overflow: hidden;
+  min-height: 100vh;
+
+  transition: all 0.7s;
+}
+body.dark {
+  --bg-color: #000;
+  --fg-color: #fff;
+}
+
+.clock {
+  width: 280px;
+  height: 280px; 
+  position: relative;
+  margin: 5rem 0 -2rem;
+
+  /*border: 1px solid red;*/
+}
+.arrow {
+  position: absolute;
+  top: 50%; left: 50%;  
+  transform-origin: calc(0px - var(--arrow-thickness) / 2) 50%;
+
+  height: var(--arrow-thickness);
+
+  background-color: var(--fg-color);
+  transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
+}
+
+.hours {
+  width: 80px; 
+  transform: rotate(45deg);
+}
+.minutes {
+  width: 120px;
+  transform: rotate(15deg);
+}
+.seconds {
+  width: 120px;
+  transform: rotate(0deg);
+  background-color: red;
+}
+
+.seconds::after,
+.seconds::before {
+  content: '';
+  position: absolute;  
+  display: block;
+  width: calc(3 * var(--arrow-thickness)); 
+  height: calc(3 * var(--arrow-thickness));
+  top: calc(0px - var(--arrow-thickness));
+  left: calc(0px - 2 * var(--arrow-thickness));
+  border: var(--arrow-thickness) solid red;
+  border-radius: 50%;
+  z-index: 5;
+}
+.seconds::before {
+  background-color: var(--bg-color);
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  color: var(--bg-color);
+  background-color: var(--fg-color);
+  border-radius: 3px;
+  border: none;
+}
+
+.time { font-size: 5rem; }
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-words { 
+  font-size: 1.5rem;
+  opacity: 0.5; 
+}
+.date-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 2rem; height: 2rem;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--bg-color);
+  background-color: var(--fg-color);
+  border-radius: 50%;
+}
+
+
