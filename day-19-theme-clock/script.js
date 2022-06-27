@@ -24,7 +24,7 @@ function updateTime() {
   const todaysZero = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 0, 0, 0);
   const secondsAfter = Math.floor((currentTime.getTime() - todaysZero.getTime()) / 1000);
   const minutesAfter = Math.floor(secondsAfter / 60);
-  const hoursAfter = Math.floor(minutesAfter / 60) % 12;
+  const hoursAfter = minutesAfter / 60 % 12;
 
   timeCont.innerText = currentTime.toLocaleTimeString(locale, { timeStyle: 'short' });
   dateWordsCont.innerText = 
