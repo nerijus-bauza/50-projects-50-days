@@ -26,7 +26,7 @@ function updateTime() {
   const minutesAfter = Math.floor(secondsAfter / 60);
   const hoursAfter = Math.floor(minutesAfter / 60) % 12;
 
-  timeCont.innerText = currentTime.toLocaleTimeString(locale, { timeStyle: 'medium' });
+  timeCont.innerText = currentTime.toLocaleTimeString(locale, { timeStyle: 'short' });
   dateWordsCont.innerText = 
     currentTime.toLocaleDateString(locale, { weekday: 'short' }).toUpperCase() + 
     ', ' +
